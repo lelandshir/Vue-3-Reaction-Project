@@ -13,6 +13,7 @@ Léland Shirley
 
 ### Lifecycle Hooks in Vue
 
+- Use hooks to write logic and fire functions
 - Every component is `created`, `mounted`, `updated` and `destroyed`
 - Use functions/hooks (`beforeCreate()`, `created()`) to fire code at different points throughout these life cycles
 - [Lifecycle Diagram](https://v3.vuejs.org/guide/instance.html#lifecycle-diagram)

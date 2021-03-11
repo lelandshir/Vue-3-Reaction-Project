@@ -40,4 +40,17 @@ export default {
 
 <style lang="sass">
 @import "../src/styles/global.sass"
+button
+  background: $primary
+  color: #fff
+  border: none
+  padding: 8px 16px
+  font-size: 1rem
+  letter-spacing: 1.5px
+  cursor:pointer
+  margin: .5rem
+
+button[disabled]
+  opacity: 0.2
+  cursor: not-allowed
 </style>
