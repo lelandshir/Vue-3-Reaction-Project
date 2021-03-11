@@ -1,26 +1,38 @@
 <template>
-	<h1>Vue App 1.0: Reaction Timer</h1>
+	<h1>Vue 3 App 1.1: Reaction Timer</h1>
 	<button @click="startGame" :disabled="isPlaying">play</button>
-	<Block v-if="isPlaying" :delay="delay" />
+	<!-- grab the emit by adding it as a prop by @name and passing the function that will use the data that was passed  -->
+	<Block v-if="isPlaying" :delay="delay" @end="endGame" />
+	<Results v-if="showResults" :score="score" />
 </template>
 
 <script>
-import Block from "./components/Block.vue";
+import Block from "./components/Block";
+import Results from "./components/Results";
 
 export default {
 	name: "App",
-	components: { Block },
+	components: { Block, Results },
 	data() {
 		return {
 			isPlaying: false,
 			delay: null,
+			score: null,
+			showResults: false,
 		};
 	},
 	methods: {
 		startGame() {
+			this.showResults = false;
 			this.delay = 2000 + Math.random() * 5000;
 			this.isPlaying = true;
 			// console.log(this.delay);
+		},
+		// pass the data into the parameter of the specified method - could be `asdf`
+		endGame(reactionTime) {
+			this.score = reactionTime;
+			this.isPlaying = false;
+			this.showResults = true;
 		},
 	},
 };

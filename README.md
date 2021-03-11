@@ -8,7 +8,7 @@ Léland Shirley
 
 ### Remember:
 
-- props === array
+- props `===` []
 - Use data binding to conditionally disable and enable something like a button
 
 ### Lifecycle Hooks in Vue
@@ -20,3 +20,10 @@ Léland Shirley
 - `beforeUnmount()` and `unmounted()` are great places for any component clean up
 - When using `Vue Router` a component is `unmounted` (destroyed) when we navigate away it's page
 - To use a `hook` place it directly in the component object
+
+### Custom Events & Emits
+
+- When we `emit` a custom event from a child component we can send data that we can access from the parent
+- React to the event being emitted on the child component that is nested in the parent by grabbing the name of the `emit`
+- Use a `custom event` to pass data up from a nested child component into the root/parent component, then down into another child component using the `emit` keyword
+- Emit the event from a method in the component that holds the data, react to it

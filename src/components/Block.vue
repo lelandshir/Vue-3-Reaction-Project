@@ -1,5 +1,5 @@
 <template>
-	<div class="block" v-if="showBlock">
+	<div class="block" v-if="showBlock" @click="stopTimer">
 		click me
 	</div>
 </template>
@@ -32,11 +32,16 @@ export default {
 	methods: {
 		startTimer() {
 			(this.timer = setInterval(() => {
-				this.reaction += 10;
+				this.reactionTime += 10;
 			})),
 				10;
 		},
-		stopTimer() {},
+		stopTimer() {
+			clearInterval(this.timer);
+			console.log(this.reactionTime);
+			// emitting a custom event: I need an $emit on this object (component) and I want to name it "end". The data I want to pass along with it is, the reactionTime property
+			this.$emit("end", this.reactionTime);
+		},
 	},
 	// LIFE CYCLE HOOKS
 	updated() {
