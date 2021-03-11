@@ -1,19 +1,22 @@
-# reaction-timer
+# Vue 3 Notes
 
-## Project setup
-```
-npm install
-```
+Léland Shirley
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### Useful Shortcuts:
 
-### Compiles and minifies for production
-```
-npm run build
-```
+- In a blank component, type `vue` and select top option for shortcut to component makeup
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Remember:
+
+- props === array
+- Use data binding to conditionally disable and enable something like a button
+
+### Lifecycle Hooks in Vue
+
+- Every component is `created`, `mounted`, `updated` and `destroyed`
+- Use functions/hooks (`beforeCreate()`, `created()`) to fire code at different points throughout these life cycles
+- [Lifecycle Diagram](https://v3.vuejs.org/guide/instance.html#lifecycle-diagram)
+- A popular place to make fetch reqs if data is needed for the component is in the `mounted()` function, but we can make request in the `created()`, and `beforeMount()` functions too
+- `beforeUnmount()` and `unmounted()` are great places for any component clean up
+- When using `Vue Router` a component is `unmounted` (destroyed) when we navigate away it's page
+- To use a `hook` place it directly in the component object
